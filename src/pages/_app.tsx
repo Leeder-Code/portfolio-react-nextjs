@@ -1,5 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-
+import Layout from 'src/components/Layout/Layout'
 const theme = {}
 
 function MyApp({ Component, pageProps }) {
@@ -7,7 +7,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyles />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
   )
@@ -24,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
   body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #0f1624;
   }
   button {
     cursor: pointer;
