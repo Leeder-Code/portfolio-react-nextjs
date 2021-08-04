@@ -23,10 +23,15 @@ const GlobalStyles = createGlobalStyle`
     margin: 0px;
     padding: 0px;
   }
+  html{
+    font-size: 62.5%;
+    font-family: 'Poppins', 'Consolas', sans-serif;
+  }
   body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #0f1624;
+    color: #ffffff;
   }
   button {
     cursor: pointer;
