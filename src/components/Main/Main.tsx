@@ -18,6 +18,7 @@ const Main: FC = () => {
 
 const MainStyles = styled.main`
   max-width: 1040px;
+  margin: auto;
 `
 
 export default Main
