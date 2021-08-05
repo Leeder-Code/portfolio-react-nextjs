@@ -49,7 +49,9 @@ export const getStaticProps: GetStaticProps<SSR> = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((res) => res.json()),
+    })
+      .then((res) => res.json())
+      .then((res) => res.data),
   ])
   return {
     props: {
