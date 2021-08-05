@@ -14,7 +14,7 @@ type SSR = {
   technologies: any[]
 }
 
-const Home: FC<SSR> = ({ projects, technologies = [] }) => {
+const Home: FC<SSR> = ({ projects, technologies }) => {
   return (
     <>
       <Head>
@@ -35,7 +35,7 @@ const Home: FC<SSR> = ({ projects, technologies = [] }) => {
 export default Home
 
 export const getStaticProps: GetStaticProps<SSR> = async () => {
-  const [projects] = await Promise.all([
+  const [projects, technologies] = await Promise.all([
     fetch(`${SERVER}/api/projects`, {
       method: 'GET',
       headers: {
@@ -44,14 +44,13 @@ export const getStaticProps: GetStaticProps<SSR> = async () => {
     })
       .then((res) => res.json())
       .then((res) => res.data),
-    // fetch(`${SERVER}/api/technologies`, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // }).then((res) => res.json()),
+    fetch(`${SERVER}/api/technologies`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json()),
   ])
-  const technologies = []
   return {
     props: {
       projects,

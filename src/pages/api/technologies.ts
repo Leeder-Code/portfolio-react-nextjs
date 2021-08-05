@@ -1,7 +1,8 @@
 import { NextApiHandler } from 'next'
 
 const handler: NextApiHandler = async (req, res) => {
-  res.status(200).json([{ technology: 'ok' }])
+  const data = []
+  res.status(200).json({ data })
 }
 
 export default handler
