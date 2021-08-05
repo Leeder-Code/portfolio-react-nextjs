@@ -1,8 +1,31 @@
 import React, { FC } from 'react'
+import Divider from 'src/components/layout/Divider'
+import SectionTitleText from 'src/components/layout/SectionTitleText'
+import Card from 'src/components/projects/Card'
 import styled from 'styled-components'
 
-const Projects: FC<{ projects: Object }> = () => {
-  return <ProjectsStyles id="projects">x</ProjectsStyles>
+const Projects: FC<{ projects: any[] }> = ({ projects }) => {
+  console.log(projects)
+  const CardsComponents = projects.map(
+    ({ id, imgSrc, title, about, stack, githubLink, pageLink }) => (
+      <Card
+        key={id}
+        imgSrc={imgSrc}
+        title={title}
+        about={about}
+        stack={stack}
+        githubLink={githubLink}
+        pageLink={pageLink}
+      />
+    )
+  )
+  return (
+    <ProjectsStyles id="projects">
+      <Divider width={84} height={6} color1="#2c8eb8" color2="#30aba0" />
+      <SectionTitleText>Projects</SectionTitleText>
+      {CardsComponents}
+    </ProjectsStyles>
+  )
 }
 const ProjectsStyles = styled.section`
   padding: 50px 0px;
