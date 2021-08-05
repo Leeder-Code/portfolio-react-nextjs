@@ -24,6 +24,7 @@ const Main: FC<{ projects: Object; technologies: Object }> = ({
 const MainStyles = styled.main`
   max-width: 1040px;
   margin: auto;
+  font-size: 1.6rem;
 `
 
 export default Main

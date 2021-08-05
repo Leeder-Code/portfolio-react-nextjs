@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import styled from 'styled-components'
 
 const Hero: FC = () => {
-  return <HeroStyles id="hero">x</HeroStyles>
+  return <HeroStyles id="hero"></HeroStyles>
 }
 
 const HeroStyles = styled.section`
