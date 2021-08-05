@@ -5,7 +5,6 @@ import Card from 'src/components/projects/Card'
 import styled from 'styled-components'
 
 const Projects: FC<{ projects: any[] }> = ({ projects }) => {
-  console.log(projects)
   const CardsComponents = projects.map(
     ({ id, imgSrc, title, about, stack, githubLink, pageLink }) => (
       <Card
