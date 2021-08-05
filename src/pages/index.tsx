@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
-import styled from 'styled-components'
+import { FC } from 'react'
+import { GetStaticProps } from 'next'
 
 import Header from 'src/components/Header/Header'
 import Footer from 'src/components/Footer/Footer'
@@ -9,12 +10,11 @@ import Main from 'src/components/Main/Main'
 import { SERVER } from 'src/lib/constants'
 
 type SSR = {
-  projects: object
-  technologies: object
+  projects: Object
+  technologies: Object
 }
 
-export default function Home({ projects, technologies }) {
-  console.log(projects, technologies)
+const Home: FC<SSR> = ({ projects, technologies }) => {
   return (
     <>
       <Head>
@@ -26,13 +26,15 @@ export default function Home({ projects, technologies }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Main />
+      <Main projects={projects} technologies={technologies} />
       <Footer />
     </>
   )
 }
 
-export const getStaticProps = async () => {
+export default Home
+
+export const getStaticProps: GetStaticProps<SSR> = async () => {
   const [projects, technologies] = await Promise.all([
     fetch(`${SERVER}/api/projects`).then((res) => res.json()),
     fetch(`${SERVER}/api/technologies`).then((res) => res.json()),
