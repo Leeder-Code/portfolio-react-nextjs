@@ -34,23 +34,28 @@ const Home: FC<SSR> = ({ projects = [], technologies = [] }) => {
 
 export default Home
 
-// export const getStaticProps: GetStaticProps<SSR> = async () => {
-//   const [projects, technologies] = await Promise.all([
-//     fetch(`${SERVER}/api/projects`, {
-//       method: 'GET', // *GET, POST, PUT, DELETE, etc.
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     })
-//       .then((res) => res.json())
-//       .then((res) => res.data),
-//     fetch(`${SERVER}/api/technologies`).then((res) => res.json()),
-//   ])
+export const getStaticProps: GetStaticProps<SSR> = async () => {
+  const [projects, technologies] = await Promise.all([
+    fetch(`${SERVER}/api/projects`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => res.data),
+    fetch(`${SERVER}/api/technologies`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json()),
+  ])
 
-//   return {
-//     props: {
-//       projects,
-//       technologies,
-//     },
-//   }
-// }
+  return {
+    props: {
+      projects,
+      technologies,
+    },
+  }
+}
