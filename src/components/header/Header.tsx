@@ -56,7 +56,6 @@ const Logo = styled.div`
   font-size: 2.4rem;
   flex: 0.3;
   font-weight: 700;
-  align-self: flex-start;
 `
 const LinksContainer = styled.ul`
   display: flex;
@@ -64,7 +63,6 @@ const LinksContainer = styled.ul`
   gap: 3rem;
   font-size: 2rem;
   flex: 1;
-  align-self: flex-start;
 `
 const LinkStyles = styled.a`
   text-decoration: none;

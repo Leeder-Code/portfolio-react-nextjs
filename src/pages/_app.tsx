@@ -36,6 +36,7 @@ const GlobalStyles = createGlobalStyle`
   }
   button {
     cursor: pointer;
+    border: none;
   }
   button:hover {
     opacity: 0.8;
