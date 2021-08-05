@@ -65,10 +65,7 @@ const CardStyles = styled.div`
   box-shadow: 0 50px 50px rgb(0 0 0 / 50%);
   overflow: hidden;
 `
-const ImgStyles = styled.img`
-  object-fit: cover;
-  height: 225px;
-`
+
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
