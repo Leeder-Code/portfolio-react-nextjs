@@ -20,6 +20,8 @@ const Card: FC<CardTypes> = ({
   pageLink,
 }) => {
   const openInNewTab = (url) => {
+    if (url === '') return
+
     window.open(url, '_blank').focus()
   }
   return (
@@ -27,7 +29,7 @@ const Card: FC<CardTypes> = ({
       <ImgStyles src={imgSrc} />
       <ContentContainer>
         <TitleStyles>{title}</TitleStyles>
-        <Divider width={50} height={3} color1="#000000" color2="#ffffff" />
+        <Divider width={50} height={4} color1="#14213d" color2="#1b2437" />
         <AboutStyles>{about}</AboutStyles>
         <StackTextStyles>Stack</StackTextStyles>
         <StackStyles>
@@ -36,10 +38,16 @@ const Card: FC<CardTypes> = ({
           ))}
         </StackStyles>
         <ButtonsContainerStyles>
-          <ButtonStyles onClick={() => openInNewTab(githubLink)}>
+          <ButtonStyles
+            disabled={githubLink === ''}
+            onClick={() => openInNewTab(githubLink)}
+          >
             Code
           </ButtonStyles>
-          <ButtonStyles onClick={() => openInNewTab(pageLink)}>
+          <ButtonStyles
+            disabled={pageLink === ''}
+            onClick={() => openInNewTab(pageLink)}
+          >
             Page
           </ButtonStyles>
         </ButtonsContainerStyles>
@@ -54,36 +62,43 @@ const CardStyles = styled.div`
   width: 400px;
   border-radius: 10px;
   box-shadow: 0 50px 50px rgb(0 0 0 / 60%);
+  overflow: hidden;
 `
 const ImgStyles = styled.img`
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  overflow: hidden;
+  height: 225px;
 `
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
-  gap: 10px;
+  height: 425px;
 `
 const TitleStyles = styled.h2`
   text-align: center;
+  color: rgb(103, 169, 207);
+  font-weight: 500;
 `
 const AboutStyles = styled.div`
   text-align: justify;
+  color: #e0e0e0e0;
+  width: 90%;
 `
 const StackTextStyles = styled.div`
   text-align: center;
   width: 100%;
+  color: #6c7993;
+  font-weight: 500;
+  font-size: 1.8rem;
 `
 const StackStyles = styled.div`
   display: flex;
   width: 100%;
+  justify-content: space-between;
 `
 const Stack = styled.span`
-  flex: 1;
   white-space: nowrap;
 `
 const ButtonsContainerStyles = styled.div`
@@ -98,6 +113,9 @@ const ButtonStyles = styled.button`
   padding: 1rem 1.5rem;
   background: #2c8eb8;
   border-radius: 15px;
+  &:disabled {
+    background-color: gray;
+  }
 `
 
 export default Card

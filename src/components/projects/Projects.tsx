@@ -23,11 +23,18 @@ const Projects: FC<{ projects: any[] }> = ({ projects }) => {
     <ProjectsStyles id="projects">
       <Divider width={84} height={6} color1="#2c8eb8" color2="#30aba0" />
       <SectionTitleText>Projects</SectionTitleText>
-      {CardsComponents}
+      <CardContainerStyles>{CardsComponents}</CardContainerStyles>
     </ProjectsStyles>
   )
 }
 const ProjectsStyles = styled.section`
   padding: 50px 0px;
+`
+const CardContainerStyles = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  row-gap: 50px;
 `
 export default Projects
