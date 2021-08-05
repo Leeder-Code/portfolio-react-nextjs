@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import Divider from 'src/components/layout/Divider'
 import styled from 'styled-components'
+import Image from 'next/image'
 
 type CardTypes = {
   imgSrc: string
@@ -26,7 +27,7 @@ const Card: FC<CardTypes> = ({
   }
   return (
     <CardStyles>
-      <ImgStyles src={imgSrc} />
+      <Image src={imgSrc} alt={imgSrc} width={1920} height={1080} />
       <ContentContainer>
         <TitleStyles>{title}</TitleStyles>
         <Divider width={50} height={4} color1="#14213d" color2="#1b2437" />
@@ -61,7 +62,7 @@ const CardStyles = styled.div`
   flex-direction: column;
   width: 400px;
   border-radius: 10px;
-  box-shadow: 0 50px 50px rgb(0 0 0 / 60%);
+  box-shadow: 0 50px 50px rgb(0 0 0 / 50%);
   overflow: hidden;
 `
 const ImgStyles = styled.img`
@@ -113,6 +114,7 @@ const ButtonStyles = styled.button`
   padding: 1rem 1.5rem;
   background: #2c8eb8;
   border-radius: 15px;
+  transition: opacity 0.3s;
   &:disabled {
     background-color: gray;
   }
