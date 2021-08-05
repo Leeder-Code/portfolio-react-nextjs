@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
   html{
     font-size: 62.5%;
     font-family: 'Poppins', 'Consolas', sans-serif;
+    scroll-behavior: smooth;
   }
   body{
     -webkit-font-smoothing: antialiased;
