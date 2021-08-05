@@ -3,9 +3,9 @@ import Head from 'next/head'
 import { FC } from 'react'
 import { GetStaticProps } from 'next'
 
-import Header from 'src/components/Header/Header'
-import Footer from 'src/components/Footer/Footer'
-import Main from 'src/components/Main/Main'
+import Header from 'src/components/header/Header'
+import Footer from 'src/components/footer/Footer'
+import Main from 'src/components/main/Main'
 
 import { SERVER } from 'src/lib/constants'
 

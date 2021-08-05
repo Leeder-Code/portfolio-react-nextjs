@@ -1,5 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Layout from 'src/components/Layout/Layout'
+import Layout from 'src/components/layout/Layout'
 const theme = {}
 
 function MyApp({ Component, pageProps }) {

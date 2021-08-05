@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 
 import styled from 'styled-components'
 
-import About from 'src/components/About/About'
-import Hero from 'src/components/Hero/Hero'
-import Projects from 'src/components/Projects/Projects'
-import Technologies from 'src/components/Technologies/Technologies'
+import About from 'src/components/about/About'
+import Hero from 'src/components/hero/Hero'
+import Projects from 'src/components/projects/Projects'
+import Technologies from 'src/components/technologies/Technologies'
 
 const Main: FC<{ projects: Object; technologies: Object }> = ({
   projects,
