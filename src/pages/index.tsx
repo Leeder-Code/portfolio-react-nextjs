@@ -10,8 +10,8 @@ import Main from 'src/components/main/Main'
 import { SERVER } from 'src/lib/constants'
 
 type SSR = {
-  projects: Object
-  technologies: Object
+  projects: any[]
+  technologies: any[]
 }
 
 const Home: FC<SSR> = ({ projects, technologies }) => {
@@ -36,7 +36,9 @@ export default Home
 
 export const getStaticProps: GetStaticProps<SSR> = async () => {
   const [projects, technologies] = await Promise.all([
-    fetch(`${SERVER}/api/projects`).then((res) => res.json()),
+    fetch(`${SERVER}/api/projects`)
+      .then((res) => res.json())
+      .then((res) => res.data),
     fetch(`${SERVER}/api/technologies`).then((res) => res.json()),
   ])
 

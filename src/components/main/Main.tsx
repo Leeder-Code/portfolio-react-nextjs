@@ -7,7 +7,7 @@ import Hero from 'src/components/hero/Hero'
 import Projects from 'src/components/projects/Projects'
 import Technologies from 'src/components/technologies/Technologies'
 
-const Main: FC<{ projects: Object; technologies: Object }> = ({
+const Main: FC<{ projects: any[]; technologies: any[] }> = ({
   projects,
   technologies,
 }) => {
