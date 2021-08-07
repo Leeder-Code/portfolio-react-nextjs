@@ -64,6 +64,10 @@ const CardStyles = styled.div`
   border-radius: 10px;
   box-shadow: 0 50px 50px rgb(0 0 0 / 50%);
   overflow: hidden;
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
 `
 
 const ContentContainer = styled.div`
